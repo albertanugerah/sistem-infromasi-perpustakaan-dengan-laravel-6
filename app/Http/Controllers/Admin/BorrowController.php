@@ -21,7 +21,7 @@ class BorrowController extends Controller
         $borrowHistory->update([
             'returned_at' => Carbon::now(),
             'admin_id' => auth()->id(),
-        ])
+        ]);
 
         return redirect()->back()->withSuccess('Buku dikembalikan');
     }
