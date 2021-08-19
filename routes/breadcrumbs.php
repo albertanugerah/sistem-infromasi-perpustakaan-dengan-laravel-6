@@ -58,3 +58,8 @@ Breadcrumbs::for('admin.borrow.index', function (BreadcrumbTrail $trail) {
     $trail->push('Home', route('admin.dashboard'));
     $trail->push('Peminjaman', route('admin.borrow.index'));
 });
+
+//buku index
+Breadcrumbs::for('admin.report.top-book', function (BreadcrumbTrail $trail) {
+    $trail->push('Home', route('admin.dashboard'));
+});
