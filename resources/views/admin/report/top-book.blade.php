@@ -22,7 +22,7 @@
                 <tbody>
                 @foreach($books as $book)
                     <tr>
-                        <td></td>
+                        <td>{{ $book->id }}</td>
                         <td>{{ $book->title  }}</td>
                         <td>{{ $book->description }}</td>
                         <td>{{ $book->qty }}</td>
