@@ -37,7 +37,7 @@ class DataController extends Controller
 
     public function borrows()
     {
-        $borrows = BorrowHistory::latest();
+        $borrows = BorrowHistory::isBorrowed()->latest();
 
         return datatables()->of($borrows)
             ->addColumn('user', function (BorrowHistory $borrowHistory) {

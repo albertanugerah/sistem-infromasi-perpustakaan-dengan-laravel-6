@@ -3,8 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Data Peminjam</h3>
-            <a href="{{ route('admin.author.create') }}" class="btn btn-primary btn-sm float-right">Tambah Penulis</a>
+            <h3 class="card-title">Data Peminjaman Buku</h3>
         </div>
         <div class="card-body">
 
@@ -20,10 +19,10 @@
             </table>
         </div>
     </div>
-    <form action="" method="post" id="deleteForm">
+    <form action="" method="post" id="returnForm">
         @csrf
-        @method("DELETE")
-        <input type="submit" value="Delete" class="btn btn-danger btn-sm d-none">
+        @method("PUT")
+        <input type="submit" value="Return" class="btn btn-danger btn-sm d-none">
     </form>
 
 @endsection
