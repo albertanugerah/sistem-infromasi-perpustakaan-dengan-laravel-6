@@ -18,9 +18,17 @@
                 </tr>
                 </thead>
                 <tbody>
+                @php
+                    $page = 1;
+                        if(request()->has('page'))
+                        {
+                            $page = request('page');
+                        }
+                        $no = (env('PAGINATION_ADMIN') * $page)-(env('PAGINATION_ADMIN')-1)
+                @endphp
                 @foreach($users as $user)
                     <tr>
-                        <td>{{$user->id}}</td>
+                        <td>{{$no++}}</td>
                         <td>{{ $user->name  }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->created_at->diffForHumans() }}</td>

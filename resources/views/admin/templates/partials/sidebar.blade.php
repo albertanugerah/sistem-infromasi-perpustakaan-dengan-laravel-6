@@ -39,6 +39,28 @@
                         <p>User</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Laporan
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.report.top-book') }}" class="nav-link">
+                                <i class="fas fa-book nav-icon"></i>
+                                <p>Buku Terlaris</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.report.top-user') }}" class="nav-link">
+                                <i class="far fa-user nav-icon"></i>
+                                <p>User Teraktif</p>
+                            </a>
+                        </li>
+                    </ul>
 
             </ul>
         </nav>
