@@ -13,6 +13,8 @@
 
 Route::get('/', 'Frontend\BookController@index')->name('homepage');
 
+Route::get('/book/{book}', 'Frontend\BookController@show')->name('book.show');
+
 Route::get('/user', function () {
     return view('admin.user.index');
 });
