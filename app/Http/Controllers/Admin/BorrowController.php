@@ -18,10 +18,12 @@ class BorrowController extends Controller
 
     public function returnBook(Request $request, BorrowHistory $borrowHistory)
     {
+
         $borrowHistory->update([
             'returned_at' => Carbon::now(),
             'admin_id' => auth()->id(),
         ]);
+        $borrowHistory->book()->increment('qty');
 
         return redirect()->back()->withSuccess('Buku dikembalikan');
     }

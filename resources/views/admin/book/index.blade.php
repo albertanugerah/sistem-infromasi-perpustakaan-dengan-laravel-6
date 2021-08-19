@@ -14,6 +14,7 @@
                     <th>Id</th>
                     <th>Title</th>
                     <th>Description</th>
+                    <th>Jumlah Buku</th>
                     <th>Author</th>
                     <th>Cover</th>
                     <th>Action</th>
@@ -44,6 +45,7 @@
     <script>
         $(function () {
             $('#dataTable').DataTable({
+                responsive: true,
                 processing: true,
                 serverSide: true,
                 ajax: '{{ route('admin.book.data') }}',
@@ -51,6 +53,7 @@
                     {data: 'DT_RowIndex', orderable: false, searchable: false},
                     {data: 'title'},
                     {data: 'description'},
+                    {data: 'qty'},
                     {data: 'author'},
                     {data: 'cover'},
                     {data: 'action'},
