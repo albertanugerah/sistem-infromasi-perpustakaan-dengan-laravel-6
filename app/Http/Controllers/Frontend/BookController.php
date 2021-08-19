@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Book;
-use App\BorrowHistory;
 use App\Http\Controllers\Controller;
 
 class BookController extends Controller
@@ -25,10 +24,8 @@ class BookController extends Controller
 
     public function borrow(Book $book)
     {
-        BorrowHistory::create([
-            'user_id' => auth()->id(),
-            'book_id' => $book->id,
-        ]);
-        return 'OK';
+        $user = auth()->user();
+        $user->borrow()->attach($book);
+        return redirect()->back();
     }
 }

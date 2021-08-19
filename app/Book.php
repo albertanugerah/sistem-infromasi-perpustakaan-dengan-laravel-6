@@ -23,8 +23,11 @@ class Book extends Model
         if ($this->cover) {
             return asset($this->cover);
         }
-
         return 'https://via.placeholder.com/150x200.png?text=NO+COVER';
+    }
 
+    public function borrowed()
+    {
+        return $this->belongsToMany(User::class, 'borrow_history');
     }
 }
