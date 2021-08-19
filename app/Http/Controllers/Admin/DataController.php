@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Author;
 use App\Book;
+use App\BorrowHistory;
 use App\Http\Controllers\Controller;
 
 class DataController extends Controller
@@ -31,6 +32,23 @@ class DataController extends Controller
             ->addColumn('action', 'admin.book.action')
             ->addIndexColumn()
             ->rawColumns(['cover', 'action'])
+            ->toJson();
+    }
+
+    public function borrows()
+    {
+        $borrows = BorrowHistory::latest();
+
+        return datatables()->of($borrows)
+            ->addColumn('user', function (BorrowHistory $borrowHistory) {
+                return $borrowHistory->user->name;
+            })
+            ->addColumn('book_title', function (BorrowHistory $borrowHistory) {
+                return $borrowHistory->book->title;
+            })
+            ->addColumn('action', 'admin.borrow.action')
+            ->addIndexColumn()
+            ->rawColumns(['action'])
             ->toJson();
     }
 }
